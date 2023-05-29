@@ -92,15 +92,11 @@ f_c:	db 0
 f_d:	db 0
 
 _drive_change:
-	ld hl, f_a
-	and a
-	jr z, @ok
-@loop:
-	inc hl
-	dec a
-	jr nz, @loop
-
-@ok:
+	ld de, f_a
+	or a
+	sbc hl, hl
+	ld l, a
+	add hl, de
 	ld a, (hl)
 	ld (f_handle), a
 	ret.lil
