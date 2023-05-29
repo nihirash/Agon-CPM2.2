@@ -6,7 +6,7 @@ This is port of CP/M 2.2 for Agon Light(and Agon Light 2) that didn't require re
 
 It starts directly from MOS as application(exit only via RESET) and uses MOS's filesystem drivers for working with drive images.
 
-[<img src="https://img.youtube.com/vi/vE-IdHq0Brc/maxresdefault.jpg" width="50%">](https://youtu.be/vE-IdHq0Brc)
+![GIF screen capture](doc/cpm.gif)
 
 ## Usage
 
