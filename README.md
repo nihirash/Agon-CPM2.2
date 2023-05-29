@@ -1,5 +1,7 @@
 # CP/M 2.2 for Agon Light
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D6JVS74)
+
 This is port of CP/M 2.2 for Agon Light(and Agon Light 2) that didn't require reflashing VDP.
 
 It starts directly from MOS as application(exit only via RESET) and uses MOS's filesystem drivers for working with drive images.
