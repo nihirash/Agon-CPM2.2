@@ -6,6 +6,8 @@ This is port of CP/M 2.2 for Agon Light(and Agon Light 2) that didn't require re
 
 It starts directly from MOS as application(exit only via RESET) and uses MOS's filesystem drivers for working with drive images.
 
+[<img src="https://img.youtube.com/vi/vE-IdHq0Brc/maxresdefault.jpg" width="50%">](https://youtu.be/vE-IdHq0Brc)
+
 ## Usage
 
 Create some directory on Agon's SD card, put `cpm.bin` and up to 4 disk images(**TO THE SAME DIRECTORY**) that will be named `cpma.dsk`, `cpmb.dsk` etc. 
@@ -24,7 +26,7 @@ For new drives better use template.dsk(make copy with proper naming and copy you
 
 Make sure that you **really want it**.
 
-Build process have 2 stages. Building CP/M itself(`sources` directory) - you'll need [sjasmplus](https://github.com/z00m128/sjasmplus). As result - you'll got `cpm.sys` file that should be placed to directory with bootstrap. 
+Build process have 2 stages. Building CP/M itself(`sources` directory) - you'll need [sjasmplus](https://github.com/z00m128/sjasmplus). As result - you'll got `cpm.sys` file that should be placed to directory with bootstrap source. 
 
 Bootstrap can be built with [ez80asm](https://github.com/envenomator/agon-ez80asm). Better use latest version.
 
