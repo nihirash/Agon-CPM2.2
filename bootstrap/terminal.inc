@@ -100,6 +100,10 @@ _tty_in:
 	and UART_LSR_RDY
 	jr z, _tty_in
 	in0 a, (REG_RBR)
+;; ^@ fix
+	and a
+	jr z, _tty_in
+
 ;; TTY replacements
 	cp 127
 	jr nz, @f
