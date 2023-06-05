@@ -10,7 +10,7 @@ It starts directly from MOS as application(exit only via RESET) and uses MOS's f
 
 ## Usage
 
-Create some directory on Agon's SD card, put `cpm.bin` and up to 4 disk images(**TO THE SAME DIRECTORY**) that will be named `cpma.dsk`, `cpmb.dsk` etc. 
+Create some directory on Agon's SD card, put `cpm.bin` and disk images(**TO THE SAME DIRECTORY**) that will be named `cpma.dsk`, `cpmb.dsk` etc, drives from `A:` to `P:` are supported. 
 
 Load and run binary and you'll be in CP/M's wonderland.
 
