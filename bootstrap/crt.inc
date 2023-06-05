@@ -11,6 +11,13 @@
 _start:
 	push ix
 	push iy
+
+;	ld a, mos_sysvars
+;	rst.lil $08
+
+;	xor a
+;	ld (ix+$28), a
+
 	call _main
 	pop iy
 	pop ix

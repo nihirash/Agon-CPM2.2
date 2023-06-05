@@ -85,34 +85,26 @@ f_handle: db 0
 _drive_change:
 	add a, 'a'
 	ld (drive_letter), a
+
 	xor a
 	ld mb, a
 
-	ld a, (f_handle)
+	ld c, 0
 	MOSCALL mos_fclose
 
 	ld hl, drive
 	ld c, fa_read+fa_write
 	MOSCALL mos_fopen
 
+	ld c, a
+
+	ld a, CPM_SEG
+	ld mb, a
+	ld a, c
+
 	ld (f_handle), a
 	or a
-	jr z, _dr_change_err
-
-	push af
-	ld a, CPM_SEG
-	ld mb, a
-	pop af
 	ret.lil
-
-_dr_change_err:
-	xor a
-	call.lil _drive_change
-
-	ld a, CPM_SEG
-	ld mb, a
-	xor a
-	ret.lil	
 
 fs_init:
 	ld c, 0
@@ -123,6 +115,12 @@ fs_init:
 	MOSCALL mos_fopen
 	ld (f_handle), a
 	or a
+	push af
+	MOSCALL mos_sysvars
+	xor a
+	ld (ix+$28), a
+	ld ix, (sys_ix)
+	pop af
 	ret 
 
 fs_seek:
@@ -148,6 +146,7 @@ fs_read:
 	ld hl, (_dma)
 
 	MOSCALL mos_fread
+
 	ret
 
 fs_write:
@@ -157,3 +156,5 @@ fs_write:
 	ld hl, (_dma)
 	MOSCALL mos_fwrite
 	ret
+
+

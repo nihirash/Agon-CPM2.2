@@ -175,10 +175,6 @@ seldisk:
 
 sp_save: dw 0
 
-    ds $ff
-stack = $ - 1 
-
-
 
 all00:  ds 128
 all01:  ds 128 
@@ -196,7 +192,7 @@ all12:  ds 128
 all13:  ds 128 
 all14:  ds 128 
 all15:  ds 128
-
 dirbf:  ds 128
 
+stack = $ffff
     DISPLAY "BIOS END: ", $
