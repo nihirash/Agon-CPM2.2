@@ -27,7 +27,7 @@ _main:
 	ld a, CPM_SEG
 	ld mb, a
 	stmix
-	jp.sis $E1FD
+	jp.sis $DCFD
 
 _error:
 	xor a
@@ -47,7 +47,7 @@ _error:
 
 _cpm_restore:
 	ld hl, _cpm_image
-	ld de, $5E1FD
+	ld de, $5dcfd
 	ld bc, _cpm_end - _cpm_image
 	ldir
 	ret.lil

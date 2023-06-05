@@ -39,6 +39,71 @@ dbp_size = $ - dbp
     dw	dirbf, dpblk
     dw	$0000, all03
 
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all04
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all05
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all06
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all07
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all08
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all09
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all10
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all10
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all11
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all12
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all13
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all14
+
+    dw  $0000, $0000
+    dw  $0000, $0000
+    dw	dirbf, dpblk
+    dw	$0000, all15
+
 dpblk:	;disk parameter block for all disks.
     dw	64	;sectors per track
     db	6		;block shift factor
@@ -64,7 +129,7 @@ nothing:
     ret
 
 seldisk:
-    cp 4
+    cp 16
     jr nc, .ouch
 
     ld (.drive_num), a ;; It's more safe than joungling with stack(ONLY HERE!)
@@ -119,6 +184,18 @@ all00:  ds 128
 all01:  ds 128 
 all02:  ds 128 
 all03:  ds 128 
+all04:  ds 128 
+all05:  ds 128 
+all06:  ds 128 
+all07:  ds 128 
+all08:  ds 128
+all09:  ds 128 
+all10:  ds 128 
+all11:  ds 128 
+all12:  ds 128
+all13:  ds 128 
+all14:  ds 128 
+all15:  ds 128
 
 dirbf:  ds 128
 

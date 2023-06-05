@@ -74,64 +74,56 @@ _drive_write:
 	ret.lil
 	
 
-drive_a:
-	db "cpma.dsk", 0
-drive_b:
-	db "cpmb.dsk", 0
-drive_c:
-	db "cpmc.dsk", 0
-drive_d:
-	db "cpmd.dsk", 0
+drive:
+	db "cpm"
+drive_letter:
+	db "a.dsk", 0
 
 
 f_handle: db 0
 
-f_a:	db 0
-f_b:	db 0
-f_c:	db 0
-f_d:	db 0
-
 _drive_change:
-	ld de, f_a
-	or a
-	sbc hl, hl
-	ld l, a
-	add hl, de
-	ld a, (hl)
+	add a, 'a'
+	ld (drive_letter), a
+	xor a
+	ld mb, a
+
+	ld a, (f_handle)
+	MOSCALL mos_fclose
+
+	ld hl, drive
+	ld c, fa_read+fa_write
+	MOSCALL mos_fopen
+
 	ld (f_handle), a
+	or a
+	jr z, _dr_change_err
+
+	push af
+	ld a, CPM_SEG
+	ld mb, a
+	pop af
 	ret.lil
-	
+
+_dr_change_err:
+	xor a
+	call.lil _drive_change
+
+	ld a, CPM_SEG
+	ld mb, a
+	xor a
+	ret.lil	
 
 fs_init:
 	ld c, 0
 	MOSCALL mos_fclose
 
-	ld hl, drive_a
+	ld hl, drive
 	ld c, fa_read+fa_write
 	MOSCALL mos_fopen
-	ld (f_a), a
-	or a
-	ret z
-
-	ld hl, drive_b
-	ld c, fa_read+fa_write
-	MOSCALL mos_fopen
-	ld (f_b), a
-	
-	ld hl, drive_c
-	ld c, fa_read+fa_write
-	MOSCALL mos_fopen
-	ld (f_c), a
-	
-	ld hl, drive_d
-	ld c, fa_read+fa_write
-	MOSCALL mos_fopen
-	ld (f_d), a
-
-	ld a, (f_a)
 	ld (f_handle), a
 	or a
-	ret
+	ret 
 
 fs_seek:
 	add hl, hl ; *2

@@ -1,6 +1,6 @@
     device zxspectrum48
     
-    org $e200-3
+    org $dd00-3
     DISPLAY "ORG: ", $
 cpm:
     jp BOOT
