@@ -2,3 +2,5 @@
 *.sys
 *.lst
 *.bak
+cpm*.dsk
+release/

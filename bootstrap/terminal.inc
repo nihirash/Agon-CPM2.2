@@ -24,7 +24,7 @@ _term_init:
 	ld a, 7
 	out0 (REG_FTC), a ; Disable fifo
 
-	ld a, 0
+	xor a
 	out0 (REG_IER), a ; Disable ints
 
 @wait:
@@ -36,7 +36,7 @@ _term_init:
 	ret
 
 serial_cfg:
-	dl 115200
+	dl 57600
 	db 8
 	db 1
 	db 0
@@ -45,6 +45,9 @@ serial_cfg:
 
 vdu_init:
 	db 23, 0, 255 ; Switch to terminal emulation
+	db "CP/M to MOS gate v.1.1", 13, 10
+	db "2023 (c) Aleksandr Sharikhin", 13, 10
+	db 13,10
 init_end:
 
 
@@ -55,21 +58,25 @@ _ser_out:
 
 	ld a, c
 	out0 ($D0), a
+
 	xor a
 	ret.lil
 
 _ser_in:
-	in0 a, ($D5)
+	in0 a, ($d5)
 	and UART_LSR_RDY
 	jr z, _ser_in
+
 	in0 a, ($d0)
+
 	ret.lil
 
-_ser_status:
-	in0 a, ($D5)
+_ser_status:	
+	in0 a, ($d5)
 	and UART_LSR_RDY
 	ret.lil z
 	ld a, $ff
+	or a
 	ret.lil
 	
 _term_out:
@@ -121,3 +128,6 @@ _tty_status:
 	ret.lil z
 	ld a, $ff
 	ret.lil
+
+
+
