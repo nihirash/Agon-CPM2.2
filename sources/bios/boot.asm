@@ -49,11 +49,9 @@ int_handler:
 
 message:
     db "CP/M version 2.2", 13, 10
-    db "1979 (c) Digital Research", 13, 10
-    db "With patches", 13,10
-    db "2023 (c) Aleksandr Sharikhin", 13, 10, 13, 10
+    db "1979 (c) Digital Research", 13, 10, 13, 10
     db "Agon Quark BIOS", 13, 10
-    db "2023 (c) Aleksandr Sharikhin", 13, 10
+    db "2023 (c) Aleksandr Sharikhin", 13, 10, 13, 10
     db "BIOS built: ", __DATE__, ' ' , __TIME__
     db 13, 10, 13, 10
     db 0

@@ -35,6 +35,7 @@ mos_fclose:	equ	$0b
 mos_fgetc:	equ	$0c
 mos_fputc:	equ	$0d
 mos_feof:	equ	$0e
+mos_setint:	equ	$14
 mos_uopen:	equ	$15
 mos_uclose:	equ	$16
 mos_ugetc:	equ	$17
@@ -42,7 +43,6 @@ mos_uputc:	equ	$18
 mos_fread:	equ	$1a
 mos_fwrite:	equ	$1b
 mos_flseek:	equ	$1c
-
 ;; File modes
 fa_read:	equ	$01
 fa_write:	equ	$02

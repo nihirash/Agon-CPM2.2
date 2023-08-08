@@ -110,17 +110,16 @@ fs_init:
 	ld c, 0
 	MOSCALL mos_fclose
 
+	MOSCALL mos_sysvars
+	xor a
+	ld (ix+$28), a
+	ld ix, (sys_ix)
+
 	ld hl, drive
 	ld c, fa_read+fa_write
 	MOSCALL mos_fopen
 	ld (f_handle), a
 	or a
-	push af
-	MOSCALL mos_sysvars
-	xor a
-	ld (ix+$28), a
-	ld ix, (sys_ix)
-	pop af
 	ret 
 
 fs_seek:
