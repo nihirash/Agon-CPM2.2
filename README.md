@@ -18,7 +18,7 @@ Load and run binary and you'll be in CP/M's wonderland.
 
 I'm using [cpmtools](https://github.com/lipro-cpm4l/cpmtools) for working with CP/M drive images.
 
-Disk definition can be copied from `diskdefs` file(in `disks` directory).
+Disk definition nihirash can be copied from `diskdefs` file (in `disks` directory) for use with cpmtools.
 
 For new drives better use `template.dsk`(make copy with proper naming and copy your own files to it).
 
