@@ -1,0 +1,13 @@
+This version of startrek is found at http://www.vintage-basic.net/bcg/superstartrek.bas.
+It is significant being the version from Dave Ahl (later in 101 BASIC games) edited by John Borders.
+[Note the errant Gorders, probably the result of a poor quality scan.]
+
+John Borders moved from Byte Shop with Paul Terrell to join Exidy Inc. at the end of 1977. 
+He developed the Sorcerer ROM-resident Monitor software (equivalent of Apple ][ WozMon).
+The date of John's port, March 1978, is one month prior to the Sorcerer's launch at PERCOMP '78 in April at Long Beach.
+So possibly this version of Startrek was demoed at that launch. I like to think so.
+
+The game rules are found here: https://www.atariarchives.org/basicgames/showpage.php?page=157.
+
+I made changes so it runs under BBC BASIC for the Agon Light.
+And then a few further changes so it also runs under B:MBASIC.COM in Nihirash's Agon-CPM2.2.
