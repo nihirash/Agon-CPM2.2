@@ -9,5 +9,5 @@ cpm:
     include "cpm.asm"
     include "bios/bios.asm"
 cpm_size = $ - cpm
-    savebin "cpm.sys", cpm, cpm_size
+    savebin "../bootstrap/cpm.sys", cpm, cpm_size
     
