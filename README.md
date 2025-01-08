@@ -14,6 +14,10 @@ Create some directory on Agon's SD card, put `cpm.bin` and disk images(**TO THE 
 
 Load and run binary and you'll be in CP/M's wonderland.
 
+## Getting CP/M
+
+Download it from [releases](https://github.com/nihirash/Agon-CPM2.2/releases) section.
+
 ## Working with images
 
 I'm using [cpmtools](https://github.com/lipro-cpm4l/cpmtools) for working with CP/M drive images.
