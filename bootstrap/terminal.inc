@@ -13,7 +13,13 @@ UART_LSR_RDY:	EQU $01
 PD_DR:		EQU $a2
 
 ;; Init terminal
-_term_init:
+_term_init:    
+;; Reading serial configuration
+	ld hl, config_file
+    ld de, serial_cfg
+    ld bc, serial_cfg_end - serial_cfg
+    MOSCALL mos_load
+
 	ld hl, vdu_init
 	ld bc, init_end - vdu_init
 	rst.lil $18
@@ -35,6 +41,10 @@ _term_init:
 	in0 a, (REG_RBR)
 	ret
 
+
+config_file:
+    db "/mos/zinc.cfg", 0
+
 serial_cfg:
 	dl 57600
 	db 8
@@ -42,11 +52,12 @@ serial_cfg:
 	db 0
 	db 0
 	db 0
+serial_cfg_end:
 
 vdu_init:
 	db 23, 0, 255 ; Switch to terminal emulation
-	db "CP/M to MOS gate v.1.1", 13, 10
-	db "2023 (c) Aleksandr Sharikhin", 13, 10
+	db "CP/M to MOS gate v.1.2", 13, 10
+	db "2025 (c) Aleksandr Sharikhin", 13, 10
 	db 13,10
 init_end:
 

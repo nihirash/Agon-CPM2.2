@@ -4,3 +4,6 @@
 *.bak
 cpm*.dsk
 release/
+.DS_Store
+bootstrap/*.bin
+bootstrap/*.sys
