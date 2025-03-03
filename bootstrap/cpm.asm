@@ -23,6 +23,11 @@ _main:
 
 	call _term_init
 	call.lil _cpm_restore
+
+	ld hl, _autoexec
+	ld de, CPM_SEG * $10000 + $100
+	ld bc, _autoexec_end - _autoexec
+	ldir
 	
 	ld a, CPM_SEG
 	ld mb, a
@@ -56,3 +61,6 @@ _cpm_image:
 	incbin "cpm.sys"
 _cpm_end:
 
+_autoexec:
+	incbin "../autoexec/autoexec.com"
+_autoexec_end:
