@@ -11,12 +11,22 @@ boot:
     xor a
     ld (TDRIVE), a
     call SELDSK
-
-    jp gocpm
+    IFDEF CRT
+    ld a, 1
+    ELSE
+    xor a
+    ENDIF
+    
+    ld (IOBYTE),a
+    call gocpm
+    jp $100
 wboot:
     ld sp, stack
     CALL_GATE GATE_RESTORE
     call HOME
+
+    call gocpm
+    jp CBASE
 gocpm:
     ld a, $c3 ; JP instruction
     ld (0), a
@@ -30,8 +40,6 @@ gocpm:
     ld (38), a
     ld hl, int_handler
     ld (39), hl
-
-    ld a, 1 : ld (IOBYTE),a
     
     ld bc, $80
     call SETDMA
@@ -42,7 +50,7 @@ gocpm:
     pop af
     ld c, a
     
-    jp CBASE
+    ret
 
 int_handler:
     reti
